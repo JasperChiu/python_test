@@ -4,6 +4,14 @@ import cv2
 class ImgDetectNoise:
     @staticmethod
     def rt_keep_list(img, contours, min_area, indent):
+        """
+        根據設定的條件，回傳要保留的清單
+        :param img:欲處理的圖像(用於提供邊界)
+        :param contours:輪廓資料
+        :param min_area:最小面積閾值
+        :param indent:邊界內縮條件
+        :return:要保留的輪廓編號清單
+        """
         remove_list = []  # 將要清除的輪廓編號加入移除清單
         for i in range(len(contours)):
             area = cv2.contourArea(contours[i])  # 計算輪廓面積

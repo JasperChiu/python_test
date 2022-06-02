@@ -5,6 +5,12 @@ import cv2
 class ImgPreprocess:
     @staticmethod
     def detect_contours(img, dilate_iter):
+        """
+        圖像前處理檢測輪廓
+        :param img: 輸入處理的圖像
+        :param dilate_iter: 膨脹迭待次數
+        :return: 前處理完的圖像和輪廓資料
+        """
         img = cv2.medianBlur(img, 3)  # 初步灰階模糊化過濾極小雜訊
         _, thresh = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY_INV)  # 圖像二值化
         kernel = np.ones((3, 5), np.uint8)  # 濾波器參數
